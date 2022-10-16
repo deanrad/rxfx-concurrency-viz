@@ -1,15 +1,64 @@
 <html>
+  <head>
+    <script type="module" src="./src/index.tsx"></script>
+    <style>
+html {
+  font-family: Lato, sans-serif;
+}
+.hidden {
+  display: none;
+}
+.viz-hidden {
+  visibility: hidden;
+}
+#viz-display {
+  margin-top: 2rem;
+}
+#activity {
+  margin-left: 2rem;
+}
 
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-</head>
+/* #viz-display .request-line {
+  stroke-width: 4px;
+} */
 
-<body>
-	<div id="app"></div>
+#viz-display .waiting-line {
+  stroke-width: 3px;
+  stroke-dasharray: 4;
+}
 
-	<script src="src/index.ts">
-	</script>
-</body>
+#viz-display .cancel-line {
+  stroke-dasharray: 4;
+  color: gray;
+}
 
+#viz-display .time-mark-line {
+  /* stroke-dasharray: 4; */
+  stroke-width: 0.3;
+  color: #ccc;
+}
+
+    </style>
+    <title>𝗥𝘅𝑓𝑥 Concurrency Mode Visualizer</title>
+  </head>
+
+  <body>
+    <h1>𝗥𝘅𝑓𝑥 Concurrency Visualizer
+      <span
+      id="activity"
+  class="viz-hidden"      
+    >⏳
+    </span>
+    </h1>
+
+    <p>
+      (<button id="request">request()</button> | 
+      <button id="demo">demo()</button>) |
+      <button id="cancel">cancel()</button> |
+      <button id="reset">reset()</button>
+    </p>
+    <p>
+      <div id="viz"></div>
+    </p>
+  </body>
 </html>
